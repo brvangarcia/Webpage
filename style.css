@@ -1,0 +1,20 @@
+
+		body {
+			background-color: gray;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		h1 {
+			color: red;
+
+		}
+		#firstId {
+			color: blue;
+		}
+		#secondId {
+			color: green;
+		}
+
+		.par {
+			color: cyan;
+		}

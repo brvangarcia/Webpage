@@ -1,0 +1,25 @@
+<!DOCTYPE  html>
+<html>
+<head>
+	<title>Movie Data</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+	<img id="movieImage"/>
+	<h2 id="movieTite"></h2>
+	<p id="moviePlot"></p>
+		<script>
+			$(document).ready(function derp(){
+				$.ajax({
+					url : 'http://www.omdbapi.com/?t=minions&y=&plot=short&r=json',
+					success : function derpTwo(data){
+						$('#movieTite').html(data.Title);
+						$('#moviePlot').html(data.Plot);
+						$('#movieImage').attr('src', data.Poster);
+
+					}
+				})
+			})
+		</script>
+	</body>
+</html>

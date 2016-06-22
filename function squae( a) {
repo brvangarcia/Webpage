@@ -1,0 +1,8 @@
+function squae( a) {
+		var total = a x a;
+		return total;
+}
+
+var squareNumber = square(4);
+
+console.log('Square of 4 is : ' + squareNumber);

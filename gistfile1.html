@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My TODOs</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  </head>
+  <body style="padding-top:70px;">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h2>My TODO's</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 text-center">
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="text" id="todoInput" class="form-control"/>
+            </div>
+            <button id="todoAdd"class="btn btn-danger">Add</button>
+          </form>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <br />
+          <ul class="list-group" id="todoList">
+
+            </ul>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+    <script>
+      function addInputText(event){
+        event.preventDefault();
+        var text = $('#todoInput').val();
+        if (text != ""){
+          $('#todoInput').val('');
+          $('#todoList').prepend('<li class="list-group-item">'+text+'<span class="pull-right"><a href="#" class="complete">complete | </a><a href=# class="delete">x</a></span></li>');
+        }
+      }
+
+      function check(event){
+        event.preventDefault();
+        var text = $(this).closest('li').html();
+        $(this).closest('li').remove();
+        $('#todoList').append('<li class="list-group-item list-group-item-danger">'+text+'</li>');
+      }
+
+      function deleteItem(event){
+        event.preventDefault();
+        $(this).parent().parent().remove();
+      }
+
+      $('#todoAdd').click(addInputText);
+      $('#todoList').on('click', 'a.delete', deleteItem);
+      $('#todoList').on('click', 'a.complete', check);
+
+    </script>
+  </body>
+</html>
