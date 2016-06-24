@@ -4,6 +4,7 @@ $(document).ready(function(){
   function init(){
       items = JSON.parse(localStorage.getItem('todos'));
      if(!items) {
+      
        items = [];
      }
     for(var i = 0; i < items.length; i = i + 1){
